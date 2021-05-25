@@ -1,0 +1,60 @@
+@using Resource = Resources.Areas.School.Views.Courses.Index
+@model IEnumerable<BLL.App.DTO.Course>
+
+@{
+    ViewData["Title"] = @Resource.Title;
+}
+<div class="jumbotron shadow rounded">
+
+    <h1>@Resource.Courses</h1>
+
+    <p>
+        <a id="create-new-course" asp-action="Create">@Resource.CreateNew</a>
+    </p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                @Resource.Name
+            </th>
+            <th>
+                @Resource.Description
+            </th>
+            <th>
+                @Resource.InitialPrice
+            </th>
+            <th>
+                @Resource.Category
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">
+                        <i class="fa fa-cog mx-1 text-secondary" aria-hidden="true"></i>
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">
+                        <i class="fa fa-trash mx-1 text-danger" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>

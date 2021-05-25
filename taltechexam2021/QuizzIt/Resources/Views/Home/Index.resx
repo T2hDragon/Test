@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Title" xml:space="preserve">
+        <value>Driving School Accounting</value>
+    </data>
+    <data name="AdminTitle" xml:space="preserve">
+        <value>Admin page</value>
+    </data>
+    <data name="AdminHeader" xml:space="preserve">
+        <value>Webplatform for driving schools administration</value>
+    </data>
+    <data name="OwnerTitleEnd" xml:space="preserve">
+        <value>administration page</value>
+    </data>
+    <data name="OwnerText" xml:space="preserve">
+        <value>Platform for maintaining and updating your driving school</value>
+    </data>
+    <data name="AdminText" xml:space="preserve">
+        <value>On this page you are able maintain and update the platform which is used by schools, including the owner, teachers and students</value>
+    </data>
+    <data name="DefaultHeader" xml:space="preserve">
+        <value>Drivingschool accounting website</value>
+    </data>
+    <data name="DefaultText" xml:space="preserve">
+        <value>Meant for driving school accounting, logistics and overall handling.</value>
+    </data>
+    <data name="Name" xml:space="preserve">
+        <value>School name</value>
+    </data>
+    <data name="Description" xml:space="preserve">
+        <value>Description</value>
+    </data>
+    <data name="Update" xml:space="preserve">
+        <value>Update</value>
+    </data>
+</root>

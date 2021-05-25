@@ -1,0 +1,14 @@
+﻿@page
+@using Resources.Base.Areas.Identity.Pages.Account
+@model LockoutModel
+@{
+    ViewData["Title"] = Lockout.LockedOut;
+}
+
+<header>
+    <div class="jumbotron shadow rounded">
+
+        <h1 class="text-danger">@Lockout.LockedOut</h1>
+        <p class="text-danger">@Lockout.ThisAccountIsLockedOut</p>
+    </div>
+</header>

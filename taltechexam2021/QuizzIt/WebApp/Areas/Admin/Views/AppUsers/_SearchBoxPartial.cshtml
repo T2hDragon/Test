@@ -1,0 +1,25 @@
+@using Resource = Resources.Areas.Admin.Views.AppUsers._SearchBoxPartial
+@model WebApp.Areas.Admin.ViewModels.AppUser.AppUserSearchViewModel
+
+<form class="ml-3 pt-3 border-top border-bottom text-muted" asp-action="Search">
+    <div class="form-group form-group-sm form-row">
+        <label asp-for="search" class="col-form-label">@Resource.Search</label>
+        <div class="mx-2">
+            <input
+                placeholder="@Resource.PlaceHolderText" class="form-control form-control-sm" asp-for="search">
+        </div>
+        <label asp-for="includeDeactivated" class="col-form-label">@Resource.IncludeDeactivated</label>
+        <div class="mx-2">
+            <input class="form-control form-control-sm" type="checkbox" asp-for="includeDeactivated">
+        </div>
+        <div class="mx-2">
+            <input type="submit" value="@Resource.Search" class="btn btn-sm btn-info text-uppercase"/>
+        </div>
+        <div class="mx-1">
+            <a type="submit" asp-action="Index"
+               value="@Resource.Search" class="btn btn-sm btn-outline-secondary text-uppercase">
+                @Resource.Clear
+            </a>
+        </div>
+    </div >
+</form>

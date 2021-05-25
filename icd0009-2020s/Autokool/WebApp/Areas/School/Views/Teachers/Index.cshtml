@@ -1,0 +1,65 @@
+@using Resource = Resources.Areas.School.Views.Teachers.Index
+
+@model WebApp.Areas.School.ViewModels.Teacher.TeacherIndexViewModel
+
+@{
+    ViewData["Title"] =  Resource.Teachers;
+}
+<div class="jumbotron shadow rounded">
+
+    <h1>@Resource.Teachers</h1>
+    <form asp-action="InviteTeacher" class="float-right col-5" id="form-invite-teacher">
+        <div class="form-group text-center">
+            <label for="username" class="control-label">@Resource.Username</label>
+            <input id="username" placeholder="@Resource.Username" name="userfullName" class="form-control"/>
+        </div>
+        <di>
+            <button class="btn btn-primary">@Resource.InviteTeacher</button>
+        </di>
+        @if (Model.InviteSucceeded != null)
+        {
+            <div id="teacher-invite-message" class="alert alert-@(Model.InviteSucceeded.Value?"success" : "danger")" role="alert">
+                @Resource.Invite @(Model.InviteSucceeded.Value? Resource.Succeeded: Resource.Failed)
+            </div>
+        }
+        <br />
+        <br/>
+    </form>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                @Resource.Name
+            </th>
+            <th>
+                @Resource.Email
+            </th>
+            <th>
+                @Resource.Courses
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Teachers) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CoursesNameRep!)
+                </td>
+                <td>
+                    <a asp-action="Teacher" asp-route-contractId="@item.ContractId">
+                        <i class="fa fa-cog mx-1 text-secondary" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

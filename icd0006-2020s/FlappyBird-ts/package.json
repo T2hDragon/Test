@@ -1,0 +1,24 @@
+{
+  "name": "flappy-bird-ts",
+  "version": "1.0.0",
+  "description": "JavaScript course FlappyBird using TypeScript homework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@gitlab.cs.ttu.ee:kaalte/icd0006-2020s.git"
+  },
+  "keywords": [],
+  "author": "Karmo Alteberg",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.3.1",
+    "ts-loader": "^8.0.18",
+    "typescript": "^4.2.3",
+    "webpack": "^5.25.1",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

@@ -1,0 +1,25 @@
+.message {
+  background-color: lightblue;
+}
+
+.page-header, .title, .header{
+  text-align:center!important;
+}
+
+.page-header{
+  margin-bottom:1.5em!important;
+  margin-top:1em!important;
+}
+
+.title{
+  margin-bottom:0.75em!important;
+}
+
+.header{
+  margin-bottom:1em!important;
+  margin-top:1em!important;
+}
+
+.category-image{
+  width: 75%;
+}

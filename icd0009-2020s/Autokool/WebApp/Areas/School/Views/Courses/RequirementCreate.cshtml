@@ -1,0 +1,31 @@
+﻿@using Resource = Resources.Areas.School.Views.Courses.RequirementCreate
+@model WebApp.Areas.School.ViewModels.CourseRequirement.CourseRequirementEditViewModel
+
+@{
+    ViewData["Title"] = Resource.Title;
+}
+<div class="jumbotron shadow rounded">
+
+    <h4>@Resource.CourseRequirements</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="RequirementCreate">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+                <partial name="_RequirementCreate" model="Model"/>
+
+                <div class="form-group">
+                    <input type="submit" value="@Resource.Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Edit">@Resource.BackToCourses</a>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

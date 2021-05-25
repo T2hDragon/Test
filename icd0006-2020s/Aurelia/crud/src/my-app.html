@@ -1,0 +1,65 @@
+<!-- import html only view! -->
+<import from="./views/home/home-index.html" />
+
+<!-- import viewmodel based view - dont use extension-->
+<import from="./views/identity/identity-login" />
+<import from="./views/identity/identity-register" />
+
+<import from="./views/titles/titles-index" />
+<import from="./views/titles/titles-edit" />
+<import from="./views/titles/titles-add" />
+<import from="./views/titles/titles-details" />
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" load="home-index">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1" show.bind="state.token != null">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" load="titles-index">Titles</a>
+                    </li>
+                </ul>
+
+                <div class = "flex-grow-1" show.bind="state.token == null"></div>
+                <ul class="navbar-nav">
+                    <span class = "not-logged-in" show.bind="state.token == null">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" load="identity-register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" load="identity-login">Login</a>
+                        </li>
+                    </span>
+                    <span class = "logged-in" show.bind="state.token != null">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark">${state.firstname} ${state.lastname}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn text-dark" click.delegate="logOut($event)">Logout</a>
+                    </li>
+                    </span>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<div class="container">
+    <main role="main" class="pb-3">
+
+        <au-viewport default="home-index" name="my-app"></au-viewport>
+
+    </main>
+</div>
+
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2021 - WebApp - <a href="/Home/Privacy">Privacy</a>
+    </div>
+</footer>

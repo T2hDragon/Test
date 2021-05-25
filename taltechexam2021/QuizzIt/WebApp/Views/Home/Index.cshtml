@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebApp.Areas.QuizTaker.ModelViews.QuizResultViewModel.QuizResultViewModel>
+
+<div>
+    <h1>Quizz.Io</h1>
+    <p>
+        Welcome to Quizz.Io. Website for taking part in quiz maker quizes.
+    </p>
+    @if (Model.Any())
+    {
+        <table class="table table-striped table-dark">
+            <thead>
+            <tr>
+                <th>Quiz</th>
+                <th>Author</th>
+                <th>Score</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var quizResultView in Model)
+            {
+                <tr>
+                    <td>@quizResultView.Quiz.Name</td>
+                    <td>@quizResultView.Quiz.Creator!.FullName</td>
+                    <td>@quizResultView.CorrectAnswerPercentage%</td>
+                    <td class="float-right">
+                        <a asp-area="QuizTaker" asp-controller="QuizAnswering" asp-action="Result" asp-route-participantId="@quizResultView.ParticipantId" class="btn btn-primary text-white">Quiz result</a>
+                        <a asp-area="QuizReview" asp-controller="QuizReview" asp-action="Index" asp-route-quizId="@quizResultView.Quiz.Id" class="btn btn-primary text-white">Quiz review</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+</div>

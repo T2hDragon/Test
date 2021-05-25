@@ -1,0 +1,60 @@
+@using Resource = Resources.Areas.School.Views.Teachers._TeacherCourses
+@model BLL.App.DTO.Teacher
+
+<br/>
+<br/>
+<br/>
+<h1>@Resource.Courses</h1>
+<br/>
+
+<p>
+    <a asp-action="AddTeacherToCourse" asp-route-contractId="@Model.ContractId">@Resource.AddCourse</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Resource.Courses
+            </th>
+            <th>
+                @Resource.HourlyPay
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ContractCourses!) {
+    <tr>
+        <form asp-action="EditTeacherCourse" class="mx-auto" asp-route-ContractStudentCourseId="@item.Id">
+            <input value="@Model.ContractId"  class="form-control" name="teacherContractId" hidden/>
+            <input value="@item.Id" class="mr-auto" name="teacherStudentCourseId" hidden/>
+            <td class="mr-auto">
+                @Html.DisplayFor(modelItem => item.Course!.Name)
+            </td>
+            <td>
+                <div class="form-group" class="mr-auto">
+                    <input id="courseHourlyPay" value="@item.HourlyPay.ToString()" name="courseHourlyPay" class="form-control mr-auto"/>
+                </div>
+            </td>
+            <td>
+                <button class="btn mx-auto" class="mr-auto">
+                    <i class="fa fa-check mr-auto text-green" style="color:green !important;"></i>
+                </button>
+            </td>
+        </form>
+        <td>
+            <form asp-action="TeacherCourseDelete" class="mr-auto">
+                <input id="teacherContractId" value="@Model.ContractId" name="teacherContractId" class="form-control" hidden/>
+                <input type="hidden" value="@item.Id" name="teacherStudentCourseId"/>
+                <button class="btn mx-auto">
+                    <i class="fa fa-trash mx-auto text-danger"></i>
+                </button>
+            </form>
+
+        </td>
+    </tr>
+}
+    </tbody>
+</table>

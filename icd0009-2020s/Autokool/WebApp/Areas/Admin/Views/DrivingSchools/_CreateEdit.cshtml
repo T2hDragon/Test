@@ -1,0 +1,19 @@
+@using Resource = Resources.Areas.Admin.Views.DrivingSchools._CreateEdit
+@model WebApp.Areas.Admin.ViewModels.DrivingSchool.DrivingSchoolCreateEditViewModel
+<div class="form-group">
+    <label asp-for="DrivingSchool.Name" class="control-label">@Resource.Name</label>
+    <input asp-for="DrivingSchool.Name" class="form-control" />
+    <span asp-validation-for="DrivingSchool.Name" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="DrivingSchool.Description" class="control-label">@Resource.Description</label>
+    <input asp-for="DrivingSchool.Description" class="form-control" />
+    <span asp-validation-for="DrivingSchool.Description" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="DrivingSchool.AppUserId" class="control-label">@Resource.OwnerUser</label>
+    <select asp-for="DrivingSchool.AppUserId" class="form-control" asp-items="Model.AppUserSelectList">
+        <option>--- @Resource.PleaseSelect ---</option>
+    </select>
+    <span asp-validation-for="DrivingSchool.AppUserId" class="text-danger"></span>
+</div>

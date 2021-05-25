@@ -1,0 +1,62 @@
+@using Resource = Resources.Areas.Admin.Views.AppUsers.Create
+@model WebApp.Areas.Admin.ViewModels.AppUser.AppUserCreateManageViewModel
+<div class="jumbotron shadow rounded">
+
+    <h3 class="text-uppercase">@Resource.Title</h3>
+    <hr/>
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="UserName" class="control-label">@Resource.Username</label>
+                    <input asp-for="UserName" class="form-control"/>
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Firstname" class="control-label">@Resource.Firstname</label>
+                    <input asp-for="Firstname" class="form-control"/>
+                    <span asp-validation-for="Firstname" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Lastname" class="control-label">@Resource.Lastname</label>
+                    <input asp-for="Lastname" class="form-control"/>
+                    <span asp-validation-for="Lastname" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label">@Resource.Email</label>
+                    <input asp-for="Email" class="form-control"/>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="IsEmailConfirmed"/>@Resource.IsEmailConfirmed
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label">@Resource.Password</label>
+                    <input asp-for="Password" class="form-control"/>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Roles" class="control-label">@Resource.Roles</label>
+                    <select asp-for="SelectedRoles" class="form-control" asp-items="@Model.Roles"></select>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="@Resource.CreateAccount" class="btn btn-success"/>
+                </div>
+                <hr/>
+                <div>
+                    <a asp-action="Index">@Resource.BackToList</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

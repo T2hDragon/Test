@@ -1,0 +1,62 @@
+﻿@using Resource = Resources.Views.Home.Index
+@model BLL.App.DTO.DrivingSchool
+
+@{
+    ViewData["Title"] = Resource.Title;
+}
+<div class="jumbotron shadow rounded">
+
+    @if (User.IsInRole("admin"))
+    {
+        <h1>@Resource.AdminTitle</h1>
+        <br/>
+
+        <h2>@Resource.AdminHeader</h2>
+        <div>@Resource.AdminText</div>
+    }
+    else if (User.IsInRole("owner"))
+    {
+        <h1>@Model.Name @Resource.OwnerTitleEnd</h1>
+        <br/>
+        <div class="container">
+            <div class="row">
+                <div class="col">@Resource.OwnerText</div>
+
+
+                <div class="col-3">
+                    <form asp-action="Index" class="">
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Id"/>
+                        <input type="hidden" asp-for="AppUserId"/>
+                        <input type="hidden" asp-for="NameId"/>
+                        <input type="hidden" asp-for="DescriptionId"/>
+
+                        <div class="form-group text-center">
+                            <label asp-for="Name" class="control-label">@Resource.Name</label>
+                            <input asp-for="Name" class="form-control"/>
+                        </div>
+                        <div class="form-group text-center">
+                            <label asp-for="Description" class="control-label">@Resource.Description</label>
+                            <input asp-for="Description" class="form-control"/>
+                        </div>
+
+
+                        <div class="form-group text-center">
+                            <input type="submit" value="@Resource.Update" class="btn btn-primary"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <h1> @Resource.DefaultHeader</h1>
+        <br/>
+
+        <div>@Resource.DefaultText</div>
+    }
+
+
+</div>

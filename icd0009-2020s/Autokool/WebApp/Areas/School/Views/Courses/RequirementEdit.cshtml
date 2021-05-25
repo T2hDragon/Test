@@ -1,0 +1,66 @@
+@using Resource = Resources.Areas.School.Views.Courses.RequirementEdit
+@model WebApp.Areas.School.ViewModels.CourseRequirement.CourseRequirementEditViewModel
+
+@{
+    ViewData["Title"] = Model.CourseRequirement.Requirement?.Name ?? Resource.DefaultTitle;
+}
+
+<div class="jumbotron shadow rounded">
+
+    <h1>@(Model.CourseRequirement.Requirement?.Name ?? Resource.DefaultTitle)</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="RequirementEdit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="CourseRequirement.Id"/>
+                <input type="hidden" asp-for="CourseRequirement.DescriptionId"/>
+                
+                <input asp-for="CourseRequirement.CourseId" value="@Model.Course.Id" hidden class="form-control" />
+                <input asp-for="CourseRequirement.Id" value="@(Model.CourseRequirement?.Id ?? null)" hidden class="form-control" />
+
+                <div class="form-group">
+                    <label asp-for="CourseRequirement.Price" class="control-label">@Resource.Price</label>
+                    <input asp-for="CourseRequirement.Price" class="form-control" />
+                    <span asp-validation-for="CourseRequirement.Price" class="text-danger"></span>
+                </div>
+                @if ((Model.CourseRequirement?.Amount ?? null) != null)
+                {
+                    <div class="form-group">
+                        <label asp-for="CourseRequirement.Amount" class="control-label">@Resource.LessonsAmount</label>
+                        <input asp-for="CourseRequirement.Amount" class="form-control" />
+                        <span asp-validation-for="CourseRequirement.Amount" class="text-danger"></span>
+                    </div>
+                }
+                <div class="form-group">
+                    <label asp-for="CourseRequirement.Description" class="control-label">@Resource.Description</label>
+                    <input asp-for="CourseRequirement.Description" class="form-control" />
+                    <span asp-validation-for="CourseRequirement.Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CourseRequirement.RequirementId" class="control-label">@Resource.Requirement</label>
+                    <select asp-for="CourseRequirement.RequirementId" class ="form-control" asp-items="Model.RequirementSelectList">
+                        <option>--- @Resource.PleaseSelect ---</option>
+                    </select>
+                    <span asp-validation-for="CourseRequirement.RequirementId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="@Resource.Update" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+    <form asp-action="RequirementDelete">
+        <a asp-action="Edit" asp-route-id="@Model.Course.Id">@Resource.BackToCourse</a>
+        <input type="hidden" asp-for="CourseRequirement.Id"/>
+        <input type="hidden" value="@Model.CourseRequirement.Id" name="id"/>
+        <button class="btn mx-auto float-right">
+            <i class="fa fa-trash mx-auto text-danger"></i>
+        </button>
+        </form>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

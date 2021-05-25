@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Views\Shared\_Layout.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>_Layout.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Identity\Pages\Account\Login.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Login.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="DAL.App.DTO\ContactType.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>ContactType.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="BLL.App.DTO\Person.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Person.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Identity\Pages\Account\Login.en.resx">
+            <DependentUpon>Login.resx</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Identity\Pages\Account\Login.en.resx">
+            <DependentUpon>Person.resx</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Identity\Pages\Account\Login.en.resx">
+            <DependentUpon>ContactType.resx</DependentUpon>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\Shared\_Layout.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>_Layout.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Identity\Pages\Account\Login.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Login.resx</DependentUpon>
+      </Compile>
+      <Compile Update="DAL.App.DTO\ContactType.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ContactType.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\Person.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Person.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Domain.App" />
+    </ItemGroup>
+
+</Project>

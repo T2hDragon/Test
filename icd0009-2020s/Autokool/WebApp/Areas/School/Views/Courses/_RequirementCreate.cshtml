@@ -1,0 +1,20 @@
+@using Resource = Resources.Areas.School.Views.Courses._RequirementCreate
+@model WebApp.Areas.School.ViewModels.CourseRequirement.EditViewModel;
+<form asp-action="RequirementCreate" class="float-right" asp-route-courseId="@Model.Course.Id">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    
+    <input asp-for="CourseRequirement.CourseId" value="@Model.Course.Id" hidden class="form-control" />
+    <input asp-for="CourseRequirement.Description" value="" hidden class="form-control" />
+
+    <div class="form-group col-auto text-center">
+        <label asp-for="CourseRequirement.RequirementId" class="control-label">@Resource.Requirement</label>
+        <select asp-for="CourseRequirement.RequirementId" class ="form-control" asp-items="Model.RequirementSelectList">
+            <option>--- @Resource.PleaseSelect ---</option>
+        </select>
+        <span asp-validation-for="CourseRequirement.RequirementId" class="text-danger"></span>
+    </div>
+    <div class="form-group col-auto text-center">
+        <input type="submit" value="@Resource.Add" class="btn btn-primary" />
+    </div>
+</form>

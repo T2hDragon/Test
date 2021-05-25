@@ -1,0 +1,14 @@
+﻿@page
+@using Resources.Base.Areas.Identity.Pages.Account.Manage
+@model DownloadPersonalDataModel
+@{
+    ViewData["Title"] = DownloadPersonalData.DownloadYourData;
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+<div class="jumbotron shadow rounded">
+
+    <h4>@ViewData["Title"]</h4>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

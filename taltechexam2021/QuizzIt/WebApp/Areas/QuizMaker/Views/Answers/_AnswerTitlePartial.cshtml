@@ -1,0 +1,38 @@
+@model BLL.App.DTO.Answer
+
+
+<a data-toggle="modal"
+   title="Edit Answer" data-target="#modal-lock-@Model.Id" asp-action="UpdateName">
+    <div>@Model.Value</div>
+</a>
+
+<div class="modal fade" id="modal-lock-@Model.Id" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-center text-danger" id="deleteModalLabel">
+                    Edit answer
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div class="modal-body">
+                    <label asp-for="@Model.Value">
+                        <input asp-for="@Model.Value"/>
+                    </label>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">
+                        Close
+                    </button>
+                    <button formmethod="post" type="submit" asp-route-answerId="@Model.Id" asp-action="UpdateName" class="text-uppercase btn btn-primary">
+                        Edit
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

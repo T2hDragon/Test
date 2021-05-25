@@ -1,0 +1,55 @@
+@using Resource = Resources.Areas.Admin.Views.AppUsers._DetailsPartial
+@model WebApp.Areas.Admin.ViewModels.AppUser.AppUserDetailsViewModel
+
+
+<ul class="list-group list-group col-sm-6 col-m-5 col-lg-4 text-center">
+    <ul class="list-group-item list-group-item-dark text-uppercase">
+        @Resource.Username
+    </ul>
+    <ul class="list-group-item">
+        @Html.DisplayFor(model => model.UserName)
+    </ul>
+    <ul class="list-group-item list-group-item-dark text-uppercase">
+        @Resource.Firstname
+    </ul>
+    <ul class="list-group-item">
+        @Html.DisplayFor(model => model.FirstName)
+    </ul>
+        <ul class="list-group-item list-group-item-dark text-uppercase">
+            @Resource.Lastname
+        </ul>
+    <ul class="list-group-item">
+        @Html.DisplayFor(model => model.LastName)
+    </ul>
+    
+    <ul class="list-group-item list-group-item-dark text-uppercase">
+        @Resource.Email
+    </ul>
+    <ul class="list-group-item">
+        @Html.DisplayFor(model => model.Email)
+    </ul>
+    <ul class="list-group-item list-group-item-dark text-uppercase">
+        @Resource.PhoneNumber
+    </ul>
+    <ul class="list-group-item">
+        @Html.DisplayFor(model => model.PhoneNumber)
+    </ul>
+    <ul class="list-group-item list-group-item-dark text-uppercase">
+        @Resource.EmailConfirmed
+    </ul>
+    <ul class="list-group-item">
+        @Html.DisplayFor(model => model.EmailConfirmed)
+    </ul>
+    <ul class="list-group-item list-group-item-dark text-uppercase">
+        @Resource.LockoutEnabled
+    </ul>
+    <ul class="list-group-item">
+        @Html.DisplayFor(model => model.LockoutEnabled)
+    </ul>
+    <ul class="list-group-item list-group-item-dark text-uppercase">
+        @Resource.CreatedAt
+    </ul>
+    <ul class="list-group-item">
+        @Html.DisplayFor(model => model.CreatedAt)
+    </ul>
+</ul>

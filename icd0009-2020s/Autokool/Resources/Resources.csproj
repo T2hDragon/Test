@@ -1,0 +1,624 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Views\Shared\_Layout.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>_Layout.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="DAL.App.DTO\ContactType.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>ContactType.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="BLL.App.DTO\Person.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Person.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Domain.App\AppUser.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>AppUser.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\School\Views\Teachers\_TeacherCourses.resx">
+            <Generator>PublicResXFileCodeGenerator</Generator>
+            <LastGenOutput>_TeacherCourses.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\School\Views\Teachers\Teacher.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Teacher.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\School\Views\Teachers\Index.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Index.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Views\Shared\_LoginPartial.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>_LoginPartial.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\School\Views\Teachers\AddTeacherToCourse.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>AddTeacherToCourse.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\School\Views\Courses\_RequirementCreate.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>_RequirementCreate.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\School\Views\Courses\_RequirementIndex.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>_RequirementIndex.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\School\Views\Courses\Create.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Create.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\School\Views\Courses\Index.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Index.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\School\Views\Courses\RequirementCreate.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>RequirementCreate.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\AppUsers\_DetailsPartial.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>_DetailsPartial.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\AppUsers\_LockUserPartial.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>_LockUserPartial.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\AppUsers\_SearchBoxPartial.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>_SearchBoxPartial.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\AppUsers\_UnlockUserPartial.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>_UnlockUserPartial.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\AppUsers\Create.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Create.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\AppUsers\Details.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Details.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\AppUsers\Index.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Index.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\AppUsers\ManageUser.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>ManageUser.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\DrivingSchools\Edit.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Edit.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\DrivingSchools\_CreateEdit.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>_CreateEdit.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\DrivingSchools\Create.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Create.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\DrivingSchools\Index.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Index.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\School\Views\Courses\Edit.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Edit.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\Requirements\_CreateEdit.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>_CreateEdit.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\Requirements\Create.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Create.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\Requirements\Edit.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Edit.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\Requirements\Index.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Index.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Views\Home\Index.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Index.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\School\Views\Courses\RequirementEdit.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>RequirementEdit.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\Lessons\Create.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Create.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\Lessons\Edit.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Edit.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\Lessons\_CreateEdit.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>_CreateEdit.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Areas\Admin\Views\Lessons\Index.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Index.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Components\Alert.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Alert.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Components\Footer.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Footer.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Components\Header.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Header.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Components\Loader.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Loader.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Containers\Identity\Login.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Login.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Containers\Identity\Register.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Register.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Containers\Page404.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Page404.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Containers\Home\HomeIndex.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>HomeIndex.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Containers\Student\StudentCourses.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>StudentCourses.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Containers\Student\Course\CourseIndex.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>CourseIndex.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Containers\Student\Course\CourseSchedule.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>CourseSchedule.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="BLL.App.DTO\Contract.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Contract.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="BLL.App.DTO\ContractCourse.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>ContractCourse.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="BLL.App.DTO\Course.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Course.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="BLL.App.DTO\CourseRequirement.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>CourseRequirement.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="BLL.App.DTO\DrivingLesson.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>DrivingLesson.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="BLL.App.DTO\DrivingSchool.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>DrivingSchool.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="BLL.App.DTO\Lesson.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Lesson.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="BLL.App.DTO\LessonParticipant.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>LessonParticipant.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="BLL.App.DTO\Requirement.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Requirement.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="BLL.App.DTO\Status.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Status.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="BLL.App.DTO\Teacher.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Teacher.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="BLL.App.DTO\Title.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Title.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="BLL.App.DTO\PeriodReport.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>PeriodReport.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Containers\Teacher\TeacherOveview.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>TeacherOveview.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Containers\Teacher\TeacherSchedule.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>TeacherSchedule.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Containers\Teacher\students\StudentsIndex.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>StudentsIndex.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Containers\Teacher\students\TeacherStudentCourse.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>TeacherStudentCourse.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Containers\Teacher\students\TeacherStudentCourses.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>TeacherStudentCourses.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="FrontEnd\Containers\Teacher\students\TeacherStudentCourseSchedule.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>TeacherStudentCourseSchedule.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Errors.resx">
+          <Generator>PublicResXFileCodeGenerator</Generator>
+          <LastGenOutput>Errors.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="Areas\School\Views\Teachers\_TeacherCourses.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>_TeacherCourses.resx</DependentUpon>
+        </Compile>
+      <Compile Update="Views\Shared\_Layout.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>_Layout.resx</DependentUpon>
+      </Compile>
+      <Compile Update="DAL.App.DTO\ContactType.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ContactType.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\Person.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Person.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Domain.App\AppUser.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>AppUser.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\School\Views\Teachers\Teacher.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Teacher.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Views\Shared\_LoginPartial.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>_LoginPartial.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\School\Views\Teachers\AddTeacherToCourse.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>AddTeacherToCourse.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\School\Views\Courses\_RequirementCreate.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>_RequirementCreate.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\School\Views\Courses\_RequirementIndex.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>_RequirementIndex.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\School\Views\Courses\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\School\Views\Courses\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\School\Views\Courses\RequirementCreate.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>RequirementCreate.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\AppUsers\_DetailsPartial.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>_DetailsPartial.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\AppUsers\_LockUserPartial.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>_LockUserPartial.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\AppUsers\_SearchBoxPartial.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>_SearchBoxPartial.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\AppUsers\_UnlockUserPartial.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>_UnlockUserPartial.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\AppUsers\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\AppUsers\Details.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Details.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\AppUsers\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\AppUsers\ManageUser.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ManageUser.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\DrivingSchools\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\DrivingSchools\_CreateEdit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>_CreateEdit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\DrivingSchools\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\DrivingSchools\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\School\Views\Courses\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\Requirements\_CreateEdit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>_CreateEdit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\Requirements\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\Requirements\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\Requirements\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Views\Home\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\School\Views\Courses\RequirementEdit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>RequirementEdit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\School\Views\Courses\RequirementEdit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>RequirementEdit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\Lessons\Create.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Create.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\Lessons\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\Lessons\_CreateEdit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>_CreateEdit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Admin\Views\Lessons\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Components\Alert.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Alert.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Components\Footer.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Footer.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Components\Header.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Header.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Components\Loader.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Loader.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Containers\Identity\Login.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Login.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Containers\Identity\Register.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Register.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Containers\Page404.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Page404.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Containers\Home\HomeIndex.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>HomeIndex.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Containers\Student\StudentCourses.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>StudentCourses.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Containers\Student\Course\CourseIndex.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>CourseIndex.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Containers\Student\Course\CourseSchedule.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>CourseSchedule.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\Contract.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Contract.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\ContractCourse.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>ContractCourse.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\Course.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Course.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\CourseRequirement.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>CourseRequirement.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\DrivingLesson.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>DrivingLesson.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\DrivingSchool.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>DrivingSchool.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\Lesson.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Lesson.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\LessonParticipant.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>LessonParticipant.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\Requirement.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Requirement.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\Status.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Status.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\Teacher.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Teacher.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\Title.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Title.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\PeriodReport.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>PeriodReport.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Containers\Teacher\TeacherOveview.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>TeacherOveview.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Containers\Teacher\TeacherSchedule.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>TeacherSchedule.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Containers\Teacher\students\StudentsIndex.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>StudentsIndex.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Containers\Teacher\students\TeacherStudentCourse.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>TeacherStudentCourse.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Containers\Teacher\students\TeacherStudentCourses.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>TeacherStudentCourses.resx</DependentUpon>
+      </Compile>
+      <Compile Update="FrontEnd\Containers\Teacher\students\TeacherStudentCourseSchedule.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>TeacherStudentCourseSchedule.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Errors.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Errors.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+</Project>

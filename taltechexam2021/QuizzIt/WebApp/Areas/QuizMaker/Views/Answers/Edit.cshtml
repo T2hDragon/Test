@@ -1,0 +1,121 @@
+@model BLL.App.DTO.Question
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Question</h4>
+<hr/>
+<div class="row">
+    <div class="col-md-3">
+        <form asp-action="UpdateName" asp-route-questionId=@Model.Id>
+            <div class="row">
+                <div class="form-group col-10">
+                    <input asp-for="Value" class="form-control"/>
+                    <span asp-validation-for="Value" class="text-danger"></span>
+                </div>
+                <div class="form-group col-1">
+                    <div></div>
+                    <button class="btn mx-auto">
+                        <i class="fa fa-check mx-auto text-success"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-9">
+        <form asp-action="CreateAnswer" asp-route-questionId=@Model.Id>
+            <div class="row">
+
+                <div class="form-group col-9">
+                    <input name="Title" placeholder="Answer..." class="form-control"/>
+                </div>
+                <div class="form-group col-3">
+                    <button class="btn btn-primary">Add Answer</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Order
+        </th>
+        <th>
+            Question
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var answer in Model.Answers!)
+    {
+        <tr class=@(answer.IsCorrect ? "bg-success" : "")>
+            <td>
+                @if (answer.Order != 0)
+                {
+                    <a asp-action="MoveOrder" asp-route-answerId="@answer.Id" asp-route-move="1">
+
+                        <i class="fa fa-arrow-up"></i>
+                    </a>
+                }
+                @if (answer.Order != (Model.Answers.Count - 1))
+                {
+                    <a asp-action="MoveOrder" asp-route-answerId="@answer.Id" asp-route-move="-1">
+
+                        <i class="fa fa-arrow-down"></i>
+                    </a>
+                }
+            </td>
+            <td>
+                <partial name="_AnswerTitlePartial" model="answer"/>
+            </td>
+            <td>
+                @if (!answer.IsCorrect)
+                {
+                    <form asp-action="SetCorrectAnswer" class="d-inline" asp-route-answerId=@answer.Id>
+                        <button class="btn mx-auto">
+                            <i class="fa fa-check mx-auto text-success"></i>
+                        </button>
+                    </form>
+                    @if (Model.Answers.Count > 2)
+                    {
+                        <form asp-action="AnswerDelete" class="d-inline float-right" asp-route-answerId=@answer.Id>
+                            <button class="btn mx-auto">
+                                <i class="fa fa-trash mx-auto text-danger"></i>
+                            </button>
+                        </form>
+                    }
+                }
+                @if (answer.IsCorrect)
+                {
+                    <form asp-action="RemoveCorrectAnswer" class="d-inline" asp-route-answerId=@answer.Id>
+                        <button class="btn mx-auto">
+                            <i class="fa fa-times mx-auto text-danger"></i>
+                        </button>
+                    </form>
+                }
+            </td>
+        </tr>
+    }
+
+    </tbody>
+</table>
+
+
+<div>
+    <a asp-area="QuizMaker" asp-controller="Questions" asp-action="Edit" asp-route-id=@Model.QuizId>Back to List</a>
+    <form asp-action="QuestionDelete" class="d-inline float-right" asp-route-questionId=@Model.Id>
+        <button class="btn btn-danger mx-auto">
+            Delete
+        </button>
+    </form>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

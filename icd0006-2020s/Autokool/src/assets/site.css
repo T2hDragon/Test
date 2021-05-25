@@ -1,0 +1,159 @@
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+.nav-link {
+    color: #8cd3ff !important;
+}
+
+.nav-link:hover{
+    color: #26abff !important;
+}
+.nav-link.active {
+    color: #009dff !important;
+}
+
+.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    color: #BE0032 !important;
+}
+
+.navbar-brand:hover {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    color: crimson !important;
+}
+
+.username{
+    color: #00dbff !important;
+}
+
+.table-entry{
+    border: 0.45rem solid #0099ff;
+    background-color: lightblue;
+    border-radius: 25px;
+    margin: 0.75rem !important;
+    padding: 1.5rem !important;
+    display: block;
+}
+
+/* Provide sufficient contrast against white background */
+
+a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+
+
+
+/* Sticky footer styles
+  -------------------------------------------------- */
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+
+/* Sticky footer styles
+  -------------------------------------------------- */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+    background-color: #faf0e6;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    /* Vertically center the text there */
+}
+
+
+/* To make empty classes*/
+.text-center{
+    text-transform: none !important;
+}
+
+.bg-info{
+    text-transform: none !important;
+}
+
+.inline-table{
+    border-radius: 25px;
+    display: inline-table;
+    border-color: #000;
+    border-style: dashed;
+    border: 1px;
+    margin: 0.75rem !important;
+    padding: 1.5rem !important;
+}
+
+.inline-table-overview-students{
+    display: inline-table;
+    border-color: #e1f011 !important;
+    border-width: 0.2rem;
+
+
+}
+
+.btn-font{
+    font-size: 2rem;
+}
+
+.course-title{
+    color: #DBA9A9;
+}
+
+.course-school{
+    color: #eedd82;
+}
+
+#nav-translation-image{
+    width: auto; height: 1rem;
+}
+
+
+.cursor-pointer{
+    cursor: pointer;
+}
+

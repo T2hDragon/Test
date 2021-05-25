@@ -1,0 +1,22 @@
+{
+  "name": "webpack-skeleton",
+  "version": "1.0.0",
+  "description": "WebPack Skeleton for JS course. WebPack 5.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@gitlab.cs.ttu.ee:kaalte/icd0006-2020s.git"
+  },
+  "keywords": [],
+  "author": "Karmo Alteberg",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.0.0",
+    "webpack": "^5.20.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

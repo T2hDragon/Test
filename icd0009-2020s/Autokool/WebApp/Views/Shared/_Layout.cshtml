@@ -1,0 +1,175 @@
+﻿@using System.Globalization
+@using System.Threading
+@using Resource = Resources.Views.Shared._Layout
+@using Domain.App.Constants
+@using Domain.App.Identity
+@using Extensions.Base
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<AppUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - @Resource.Title</title>
+    <link rel="stylesheet" href="~/js/site.css" asp-append-version="true"/>
+    @await RenderSectionAsync("Css", required: false)
+    @await RenderSectionAsync("HeadScripts", required: false)
+</head>
+<body style="background-image: url('https://i.ibb.co/S0pRnwC/edited-Cars.png') !important; background-repeat: no-repeat; background-attachment: scroll; background-size: 100%; background-color: #292d29;">
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light box-shadow mb-3" style="background-color: #6f42c1">
+        <div class="container">
+
+            <a class="navbar-brand text-light" asp-area="" asp-controller="Home" asp-action="Index">@Resource.HomeTitle</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    @if (User.IsInRole(AppRoles.Owner))
+                    {
+                        <a id="nav-courses" class="nav-link text-light" asp-area="School" asp-controller="Courses" asp-action="Index">@Resource.Courses</a>
+                        <a id="nav-teachers" class="nav-link text-light" asp-area="School" asp-controller="Teachers" asp-action="Index">@Resource.Teachers</a>
+                    }
+                    @if (User.IsInRole(AppRoles.Administrator))
+                    {
+                        <a class="nav-link text-light" asp-area="Admin" asp-controller="DrivingSchools" asp-action="Index" id="nav-drivingschools">@Resource.DrivingSchools</a>
+                        <a class="nav-link text-light" asp-area="Admin" asp-controller="AppUsers" asp-action="Index">@Resource.AppUsers</a>
+                        <a class="nav-link text-light" asp-area="Admin" asp-controller="Requirements" asp-action="Index">@Resource.Requirements</a>
+                        <a class="nav-link text-light" asp-area="Admin" asp-controller="Lessons" asp-action="Index">@Resource.Lessons</a>
+                    }
+                    <partial name="_LanguageSelection"/>
+
+                </ul>
+                <partial name="_LoginPartial"/>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="footer text-muted bg-secondary">
+    <div class="container text-light">
+        &copy; @DateTime.Now.Year.ToString() - @Resource.Title
+    </div>
+</footer>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/jquery.validate.globalize.js" asp-append-version="true"></script>
+
+@await RenderSectionAsync("Scripts", required: false)
+
+@{    
+	var currentCultureCode = Thread.CurrentThread.CurrentCulture.Name.Split('-')[0];
+
+    // map .net datetime format strings to flatpickr/momentjs format
+    
+    // https://flatpickr.js.org/formatting/
+    // d - day of month,2 digits
+    // j - day of month, no leading zero
+    // m - month, 2 digits
+    // n - mont, no leading zero
+    // y - 2 digit year, Y - 4 digit year
+    
+    // https://docs.microsoft.com/en-us/dotnet/api/system.globalization.datetimeformatinfo?view=netcore-3.1
+    // dd.MM.yyyy or dd/MM/yyyy
+    
+    var datePattern = Thread.CurrentThread.CurrentUICulture.DateTimeFormat.ShortDatePattern;
+    datePattern = datePattern
+        .Replace("dd", "d")
+        .Replace("MM", "m")
+        .Replace("yyyy", "Y");
+
+    // LongTimePattern and ShortTimePattern HH:mm for 23:59,  h:mm tt for 11:59 PM
+    var timePattern = Thread.CurrentThread.CurrentUICulture.DateTimeFormat.ShortTimePattern;
+    var clock24H = timePattern.Contains("tt") == false;
+    timePattern = timePattern
+        .Replace("HH", "H")
+        .Replace("mm", "i")
+        .Replace("ss", "S")
+        .Replace("tt", "K");
+    var dateTimePattern = timePattern + " " + datePattern;
+}
+
+<script>
+    // https://github.com/globalizejs/globalize#installation
+    $.when(
+        $.get("/js/cldr-core/supplemental/likelySubtags.json", null, null, "json"),
+        $.get("/js/cldr-core/supplemental/numberingSystems.json", null, null, "json"),
+        $.get("/js/cldr-core/supplemental/timeData.json", null, null, "json"),
+        $.get("/js/cldr-core/supplemental/weekData.json", null, null, "json"),
+        
+        $.get("/js/cldr-numbers-modern/main/@currentCultureCode/numbers.json", null, null, "json"),
+        $.get("/js/cldr-numbers-modern/main/@currentCultureCode/currencies.json", null, null, "json"),
+        
+        $.get("/js/cldr-dates-modern/main/@currentCultureCode/ca-generic.json", null, null, "json"),
+        $.get("/js/cldr-dates-modern/main/@currentCultureCode/ca-gregorian.json", null, null, "json"),
+        $.get("/js/cldr-dates-modern/main/@currentCultureCode/dateFields.json", null, null, "json"),
+        $.get("/js/cldr-dates-modern/main/@currentCultureCode/timeZoneNames.json", null, null, "json")
+    ).then(function () {
+        return [].slice.apply(arguments, [0]).map(function (result) {
+            Globalize.load(result[0]);
+        });
+    }).then(function () {
+        // Initialise Globalize to the current culture
+        Globalize.locale('@currentCultureCode');
+    });
+    
+    $(function () {
+        $('[type="datetime-local"]').each(function (index, value) {
+            $(value).attr('type', 'text');
+            $(value).val(value.defaultValue);
+		    $(value).flatpickr({
+		        locale: "@currentCultureCode",
+		        enableTime: true,
+	    	    altFormat: "@dateTimePattern",
+	    	    altInput: true,
+	    	    // dateFormat: "Z", // iso format (causes -3h during summer)
+	    	    // use direct conversion, let backend deal with utc/whatever conversions
+	    	    dateFormat: "Y-m-d H:i:s",
+	    	    disableMobile: true,
+	    	    time_24hr: @(clock24H.ToString().ToLower()),
+		    });
+        });
+
+        $('[type="time"]').each(function (index, value) {
+            $(value).attr('type', 'text');
+            $(value).val(value.defaultValue);
+		    $(value).flatpickr({
+	    	    locale: "@currentCultureCode",
+	    	    enableTime: true,
+	    	    noCalendar: true,
+
+	    	    altFormat: "@timePattern",
+	    	    altInput: true,
+	    	    dateFormat: "H:i", // 24h HH:mm
+	    	    disableMobile: true,
+
+	    	    time_24hr: @(clock24H.ToString().ToLower()),
+		    });
+        });
+
+        $('[type="date"]').each(function (index, value) {
+		    $(value).attr('type', 'text');
+		    $(value).val(value.defaultValue);
+		    $(value).flatpickr({
+    		    locale: "@currentCultureCode",
+	    	    altFormat: "@datePattern",
+	    	    altInput: true,
+                disableMobile: true,
+	    	    dateFormat: "Y-m-d", // YYYY-MM-DD
+		    });
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

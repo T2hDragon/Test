@@ -1,0 +1,19 @@
+@using Resource = Resources.Areas.Admin.Views.AppUsers.Details
+@model WebApp.Areas.Admin.ViewModels.AppUser.AppUserDetailsViewModel
+<div class="jumbotron shadow rounded">
+
+    <h1 class="text-uppercase mb-4">@Resource.Title</h1>
+    <a asp-action="ManageUser" class="text-uppercase" asp-route-id="@Model.UserName">
+        @Resource.Manage
+    </a>
+    <hr/>
+    <div class="row justify-content-center">
+        <partial name="_DetailsPartial"/>
+    </div>
+    <hr/>
+    <div class="text-uppercase mt-3 mb-1">
+        <a asp-action="Index">
+            @Resource.BackToList
+        </a>
+    </div>
+</div>

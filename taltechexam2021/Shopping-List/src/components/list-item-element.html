@@ -1,0 +1,9 @@
+<li class="${item.completed ? 'completed' : ''}">
+    <div class="form-check">
+        <label class="form-check-label">
+            <input click.delegate="checkListItem(listItemNo)" checked.bind="item.completed" class="checkbox" type="checkbox">${item.description}
+            <i class="input-helper"></i>
+        </label>
+    </div>
+    <i click.delegate="removeListItem(listItemNo)" class="remove mdi mdi-close-circle-outline"></i>
+</li>

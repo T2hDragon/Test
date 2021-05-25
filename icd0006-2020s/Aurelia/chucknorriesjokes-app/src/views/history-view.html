@@ -1,0 +1,15 @@
+<import from="../components/jokeslist-view"></import>
+
+<div class = "page-header h2 ">History</div>
+<div class="container">
+    <div class = "row">
+        <div class="col-sm">
+            <img src="https://viralhare.com/wp-content/uploads/2017/05/serveimage-5-1.jpg" alt="Badass Norris" class="img-fluid img-thumbnail category-image">
+        </div>
+        <div class="col-sm">
+            <jokeslist-view title.bind="'New Jokes'" jokes.bind="jokes"></jokeslist-view>
+        </div>  
+    </div>
+</div>
+
+<jokeslist-view title.bind="'Old Jokes'" jokes.bind="previousJokes"></jokeslist-view>

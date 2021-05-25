@@ -1,0 +1,64 @@
+@using Resource = Resources.Areas.School.Views.Teachers.Teacher
+@using System.Globalization
+@model WebApp.Areas.School.ViewModels.Teacher.TeacherViewModel
+
+@{
+    ViewData["Title"] = Resource.Teacherr;
+}
+<div class="jumbotron shadow rounded">
+
+    <h2 class="text-center">@Resource.PeriodReport</h2>
+    <div class="shadow rounded p-2">
+        <div class="text-center">
+            <span class="shadow rounded">
+                <a asp-action="Teacher" asp-route-contractId="@Model.Teacher.ContractId" asp-route-monthShift="@(Model.MonthShift - 1)">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <span>@Model.Time.ToString("MMMM-yyyy", CultureInfo.CurrentCulture)</span>
+                <a asp-action="Teacher" asp-route-contractId="@Model.Teacher.ContractId" asp-route-monthShift="@(Model.MonthShift + 1)">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </span>
+        </div>
+
+        <br>
+        @foreach (var drivingLesson in Model.PeriodReport.DrivingLessons)
+        {
+            <div>
+                @drivingLesson.Start.ToString("dd HH:mm", CultureInfo.CurrentCulture) - @drivingLesson.End.ToString("HH:mm", CultureInfo.CurrentCulture) @drivingLesson.Students (@drivingLesson.CourseName)
+            </div>
+        }
+    </div>
+<br>
+    <h6>@Resource.Time: @Model.PeriodReport.TotalHours @Resource.Hours</h6>
+    <h6>@Resource.Salary: @Model.PeriodReport.TotalSalary @Resource.Euros</h6>
+
+    <br><br><br>
+    <h1>@Html.DisplayFor(model => model.Teacher.Name)</h1>
+
+    <hr/>
+    <div class="row">
+        <div class="col-md-4">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Resource.Email
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Teacher.Email)
+                </dd>
+            </dl>
+            <partial name="_TeacherCourses" model="Model.Teacher"/>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">@Resource.BackToTeachersList</a>
+        <form asp-action="Delete" asp-route-id=@Model.Teacher.ContractId class="float-right">
+            <input type="submit" value="@Resource.LetGoTeacher" class="btn btn-danger"/>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

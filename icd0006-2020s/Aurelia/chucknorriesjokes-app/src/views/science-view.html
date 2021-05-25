@@ -1,0 +1,15 @@
+<import from="../components/jokeslist-view"></import>
+
+<div class = "page-header h2 ">Science</div>
+<div class="container">
+    <div class = "row">
+        <div class="col-sm">
+            <img src="https://i.pinimg.com/originals/17/c8/ff/17c8ff58386c213f4e1d4bb0b3b676ef.jpg" alt="Badass Norris" class="img-fluid img-thumbnail category-image">
+        </div>
+        <div class="col-sm">
+            <jokeslist-view title.bind="'New Jokes'" jokes.bind="jokes"></jokeslist-view>
+        </div>  
+    </div>
+</div>
+
+<jokeslist-view title.bind="'Old Jokes'" jokes.bind="previousJokes"></jokeslist-view>

@@ -1,0 +1,34 @@
+@using BLL.App.DTO
+@model WebApp.Areas.QuizTaker.ModelViews.QuizResultViewModel.QuizResultViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>@Model.Quiz.Name</h1>
+<hr/>
+<br/><br/><br/><br/><br/>
+    @foreach (var question in Model.Quiz.Questions!)
+    {
+        <br/>
+        <h2>@question.Value</h2>
+        foreach (var answer in question.Answers!)
+        {
+            <h3 class="bg-@(Model.PickedAnswers.Select(pa => pa.Id).Contains(answer.Id) 
+                              ? (question.Answers.Any(a => a.IsCorrect) ? 
+                                  (answer.IsCorrect?
+                                      "success" 
+                                      : "danger") 
+                                  : "primary")
+                              : "none")">
+                @answer.Value
+            </h3>
+        }
+    }
+<br/><br/>
+<h4>
+    Correct answer percentage: @Model.CorrectAnswerPercentage%
+</h4>
+<div>
+    <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-primary float-right">Done</a>
+</div>

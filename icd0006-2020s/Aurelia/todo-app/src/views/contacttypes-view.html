@@ -1,0 +1,28 @@
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>
+                ContactTypeValue
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr repeat.for="item of data">
+            <td>
+                ${item.id}
+            </td>
+            <td>
+                ${item.contactTypeValue}
+            </td>
+            <td>
+                <a href="#" load="/contacttype-details(${item.id},${item.id})">Details</a>
+            </td>
+        </tr>
+
+    </tbody>
+</table>

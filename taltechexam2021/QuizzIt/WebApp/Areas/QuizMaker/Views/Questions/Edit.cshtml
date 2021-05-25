@@ -1,0 +1,94 @@
+@model BLL.App.DTO.Quiz
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Quiz</h4>
+<hr/>
+<div class="row">
+    <div class="col-md-3">
+        <form asp-action="UpdateName" asp-route-quizId=@Model.Id>
+            <div class="row">
+                <div class="form-group col-10">
+                    <input asp-for="Name" class="form-control"/>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group col-1">
+                    <div></div>
+                    <button class="btn mx-auto">
+                        <i class="fa fa-check mx-auto text-success"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-9">
+        <form asp-action="CreateQuestion" asp-route-quizId=@Model.Id>
+            <div class="row">
+
+                <div class="form-group col-9">
+                    <input name="Title" placeholder="Question..." class="form-control"/>
+                </div>
+                <div class="form-group col-3">
+                    <button class="btn btn-primary">Add Question</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            Order
+        </th>
+        <th>
+            Question
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var question in Model.Questions!)
+    {
+        <tr>
+            <td>
+                @if (question.Order != 0)
+                {
+                    <a asp-action="MoveOrder" asp-route-questionId="@question.Id" asp-route-move="1">
+
+                        <i class="fa fa-arrow-up"></i>
+                    </a>
+                }
+                @if (question.Order != (Model.Questions.Count - 1))
+                {
+                    <a asp-action="MoveOrder" asp-route-questionId="@question.Id" asp-route-move="-1">
+
+                        <i class="fa fa-arrow-down"></i>
+                    </a>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => question.Value)
+            </td>
+            <td>
+
+                <a asp-area="QuizMaker" asp-controller="Answers"  asp-action="Edit" asp-route-questionId="@question.Id" class="d-inline btn mx-auto">
+                    <i class="fa fa-cog mx-auto text-secondary" aria-hidden="true"></i>
+                </a>
+            </td>
+        </tr>
+    }
+
+    </tbody>
+</table>
+
+
+<div>
+    <a asp-controller="Quizzes" asp-action="Index">Back</a>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

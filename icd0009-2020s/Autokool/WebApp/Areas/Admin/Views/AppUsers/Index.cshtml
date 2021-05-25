@@ -1,0 +1,77 @@
+@using Resource = Resources.Areas.Admin.Views.AppUsers.Index
+@model WebApp.Areas.Admin.ViewModels.AppUser.AppUsersIndexViewModel
+<div class="jumbotron shadow rounded">
+
+    <div class="mb-3">
+        <h1 class="display-4 text-uppercase">@Resource.Title</h1>
+        <h4 class="text-uppercase">
+            <a asp-action="Create">@Resource.Add</a>
+        </h4>
+    </div>
+    <partial name="_SearchBoxPartial" model="@Model.SearchViewModel"/>
+    <table class="table table-responsive-sm table-hover">
+        <thead>
+        <tr>
+            <th>
+                @Resource.Username
+            </th>
+            <th>
+                @Resource.Firstname
+            </th>
+            <th>
+                @Resource.Lastname
+            </th>
+
+            <th>
+                @Resource.Email
+            </th>
+            <th>
+                @Resource.IsLocked
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.AppUsers)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Firstname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lastname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsLocked)
+                </td>
+                <td>
+                    <a asp-action="ManageUser" title="@Resource.Manage" asp-route-userName="@item.UserName">
+                        <i class="fa fa-cog mx-1 text-secondary" aria-hidden="true"></i>
+                    </a>
+                    <a asp-action="Details" asp-route-userName="@item.UserName">
+                        <i class="fa fa-eye mx-1 text-primary" title="@Resource.Details" aria-hidden="true"></i>
+                    </a>
+                    @if (item.IsLocked)
+                    {
+                        <partial name="_UnlockUserPartial" model="item"/>
+                    }
+                    else
+                    {
+                        <partial name="_LockUserPartial" model="item"/>
+                    }
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+@if (!Model.AppUsers.Any())
+{
+    <h3 class="text-muted">@Resource.NoResults</h3>
+}

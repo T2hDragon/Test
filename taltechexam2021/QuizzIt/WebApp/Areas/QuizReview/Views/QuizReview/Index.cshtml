@@ -1,0 +1,38 @@
+@model BLL.App.DTO.Quiz
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>@Model.Name</h1>
+<hr/>
+<br/><br/><br/><br/><br/>
+<div class="col-8">
+    @foreach (var question in Model.Questions!)
+    {
+        <partial name="_QuestionReviewPartial" model="question"/>
+        <br/><br/><br/><br/>
+    }
+</div>
+<h4>Average correct answers: @(
+    Math.Round(
+    (double) Model.Questions.Where(question => question.Answers!.Any(answer => answer.IsCorrect))
+        .Select(question => question.Answers!
+            .Where(answer => answer.IsCorrect)
+            .Select(answer => answer.PickedAnswers!.Count).Sum()).Sum()
+                            /
+    ((Model.Questions.Where(question => question.Answers!.Any(answer => answer.IsCorrect))
+        .Select(question => question.Answers!
+            .Select(answer => answer.PickedAnswers!.Count).Sum()).Sum() == 0) ? 1 : 
+     Model.Questions.Where(question => question.Answers!.Any(answer => answer.IsCorrect))
+         .Select(question => question.Answers!
+             .Select(answer => answer.PickedAnswers!.Count).Sum()).Sum())
+        *
+                                 100, 2)
+        )%</h4>
+<div>
+    <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-primary float-right">Done</a>
+</div>
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

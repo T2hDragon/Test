@@ -1,0 +1,21 @@
+@model WebApp.ViewModels.Contacts.ContactCreateEditViewModel
+
+<div class="form-group">
+    <label asp-for="Contact.Value" class="control-label"></label>
+    <input asp-for="Contact.Value" class="form-control"/>
+    <span asp-validation-for="Contact.Value" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Contact.PersonId" class="control-label"></label>
+    <select asp-for="Contact.PersonId" class="form-control" asp-items="Model.PersonSelectList">
+        <option>--- Please select ---</option>
+    </select>
+    <span asp-validation-for="Contact.PersonId" class="text-danger"></span>
+</div>
+<div class="form-group">
+    <label asp-for="Contact.ContactTypeId" class="control-label"></label>
+    <select asp-for="Contact.ContactTypeId" class="form-control" asp-items="Model.ContactTypeSelectList">
+        <option>--- Please select ---</option>
+    </select>
+    <span asp-validation-for="Contact.ContactTypeId" class="text-danger"></span>
+</div>

@@ -1,0 +1,22 @@
+<import from="../components/jokeslist-view"></import>
+
+<div class = "text-center page-header h2 ">Chuck Norris Jokes</div>
+</br>
+<div class="container">
+    <div class = "row">
+        <div class="col-sm">
+            <img src="https://cdn.flickeringmyth.com/wp-content/uploads/2020/03/chuck-norris.jpg" alt="Badass Norris" class="img-fluid img-thumbnail">
+        </div>
+        <div class="col-sm">
+            <p>Website has 3 Chuck Norris joke categories:</p>
+                <ul >
+                    <li>Developer</li>
+                    <li>History</li>
+                    <li>Science</li>
+                </ul>
+            <p>On every view gives you list of 5 random Chuck Norris jokes related to the specific category. The given 5 random jokes are on top of the list and then the previous jokes will be listed afterwards. The shown past jokes are also from other categories.</p>
+        </div>  
+    </div>
+</div>
+
+<jokeslist-view title.bind="'Previous Jokes'" jokes.bind="jokes"></jokeslist-view>

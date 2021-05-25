@@ -1,0 +1,47 @@
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="AdminHeader" xml:space="preserve">
+        <value>Autokoolide platvormi administraatori lehekülg.</value>
+    </data>
+    <data name="AdminText" xml:space="preserve">
+        <value>Sellel lehel võimaldab hallata ja uuendada autokoole, nõudeid ning kasutajaid</value>
+    </data>
+    <data name="AdminTitle" xml:space="preserve">
+        <value>Admini lehekülg</value>
+    </data>
+    <data name="OwnerText" xml:space="preserve">
+        <value>Platvorm autokooli haldamiseks ja uuendamiseks</value>
+    </data>
+    <data name="OwnerTitleEnd" xml:space="preserve">
+        <value>administreerimise lehekülg</value>
+    </data>
+    <data name="Title" xml:space="preserve">
+        <value>Autokooli haldus</value>
+    </data>
+    <data name="DefaultHeader" xml:space="preserve">
+        <value>Autokoolide raamatupidamise platvorm</value>
+    </data>
+    <data name="DefaultText" xml:space="preserve">
+        <value>Mõeldud autokoolide raamatupidamiseks, ülevaate saamiseks ja üleüldise halduseks</value>
+    </data>
+    <data name="Name" xml:space="preserve">
+        <value>Kooli nimi</value>
+    </data>
+    <data name="Description" xml:space="preserve">
+        <value>Kirjeldus</value>
+    </data>
+    <data name="Update" xml:space="preserve">
+        <value>Uuenda</value>
+    </data>
+</root>

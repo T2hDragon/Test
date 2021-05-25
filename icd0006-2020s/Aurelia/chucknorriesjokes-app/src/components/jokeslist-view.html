@@ -1,0 +1,6 @@
+<div class="h3 header">${title}</div>
+<ul if.bind="jokes.length > 0">
+    <li repeat.for="item of jokes">${item.value}</li>
+</ul>
+
+<div if.bind="jokes.length === 0">Chuck Norris has confiscated all jokes</div>

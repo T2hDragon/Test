@@ -1,0 +1,45 @@
+@model BLL.App.DTO.Question
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h3>@Model.Value</h3>
+<hr/>
+
+
+@foreach (var answer in Model.Answers!)
+    {
+        <h5 class="@(answer.IsCorrect?"bg-success":"")">
+            @answer.Value (@answer.PickedAnswers!.Count / @Model.Answers.Select(answer => answer.PickedAnswers!.Count).Sum())
+        </h5>
+        
+        <div class="container">
+            <div  class="progress">
+                <div runat="server" id="progressBar" class="progress-bar" role="progressbar" 
+                     aria-valuenow="@(Model.Answers.Select(answer => answer.PickedAnswers!.Count).Sum()!= 0 ? 
+                                    answer.PickedAnswers!.Count / Model.Answers.Select(answer => answer.PickedAnswers!.Count).Sum():
+                                    0)" 
+                     style="width:@(
+                                          Math.Round(
+                                          (double) Model.Answers
+                                              .Where(a => a.Id == answer.Id)
+                                              .Select(a => a.PickedAnswers!.Count).Sum()
+                                                                  /
+                                            ((double) Model.Answers
+                                                                      .Select(a => a.PickedAnswers!.Count).Sum() == 0 ? 1:
+                                              (double) Model.Answers
+                                                  .Select(a => a.PickedAnswers!.Count).Sum())
+                                              *
+                                                                       100, 2)
+                                              )%" aria-valuemin="0" aria-valuemax="100" >
+                    <p id="lblPercentage" runat="server"></p>
+                </div>
+            </div>
+        </div>
+        
+    }
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

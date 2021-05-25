@@ -1,0 +1,52 @@
+@using Resource = Resources.Areas.Admin.Views.AppUsers.ManageUser
+@model WebApp.Areas.Admin.ViewModels.AppUser.AppUserCreateManageViewModel
+<div class="jumbotron shadow rounded">
+
+    <h1 class="text-uppercase pb-3">@Resource.Title</h1>
+    <hr/>
+    <div class="row justify-content-center">
+        <ul class="list-group col-sm-6 col-m-5 col-lg-4">
+            <li class="list-group-item list-group-item-dark text-uppercase">
+                @Resource.Username
+            </li>
+            <li class="list-group-item">
+                @Html.DisplayFor(item => item.UserName)
+            </li>
+            <li class="list-group-item list-group-item-dark text-uppercase">
+                @Resource.Firstname
+            </li>
+            <li class="list-group-item">
+                @Html.DisplayFor(item => item.Firstname)
+            </li>
+            <li class="list-group-item list-group-item-dark text-uppercase">
+                @Resource.Lastname
+            </li>
+            <li class="list-group-item">
+                @Html.DisplayFor(item => item.Lastname)
+            </li>
+            <li class="list-group-item list-group-item-dark text-uppercase">
+                @Resource.Email
+            </li>
+            <li class="list-group-item">
+                @Html.DisplayFor(item => item.Email)
+            </li>
+            <li class="list-group-item list-group-item-dark text-uppercase font-weight-bold">
+                @Resource.Roles
+            </li>
+            <form asp-action="ManageUser">
+                <li class="list-group-item">
+                    <div class="row justify-content-center">
+                        <select class="col-8 input-group" asp-for="@Model.SelectedRoles" asp-items="@Model.Roles"></select>
+                    </div>
+                </li>
+                <li class="list-group-item list-group-item-dark text-uppercase font-weight-bold">
+                    <input type="submit" value="@Resource.Submit"
+                           title="" class="btn btn-success btn-sm text-uppercase"/>
+                </li>
+            </form>
+        </ul>
+    </div>
+    <hr/>
+</div>
+
+<a class="text-uppercase" asp-controller="AppUsers" asp-action="Index">@Resource.BackToList</a>

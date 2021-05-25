@@ -1,0 +1,26 @@
+﻿@page
+@using Resources.Base.Areas.Identity.Pages.Account.Manage
+@model ResetAuthenticatorModel
+@{
+    ViewData["Title"] = ResetAuthenticator.ResetAuthenticatorKeyTitle;
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+}
+<div class="jumbotron shadow rounded">
+
+    <partial name="_StatusMessage" for="StatusMessage" />
+    <h4>@ViewData["Title"]</h4>
+    <div class="alert alert-warning" role="alert">
+        <p>
+            <span class="glyphicon glyphicon-warning-sign"></span>
+            <strong>@ResetAuthenticator.IfYouResetAuthenticatorKey</strong>
+        </p>
+        <p>
+            @ResetAuthenticator.ThisProcessDisables2FA
+        </p>
+    </div>
+    <div>
+        <form id="reset-authenticator-form" method="post" class="form-group">
+            <button id="reset-authenticator-button" class="btn btn-danger" type="submit">@ResetAuthenticator.ResetAuthenticatorKeySubmit</button>
+        </form>
+    </div>
+</div>

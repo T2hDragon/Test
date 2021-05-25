@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-sm-1 col-md-3"></div>
+    <div class="col-sm-10 col-md-4">
+    <form method="post" action="/Identity/Account/Register" novalidate="novalidate">
+        <h4>Create a new account.</h4>
+        <hr>
+        <div class = "alert alert-danger" show.bind="errorMessage != null">${errorMessage}</div>
+        <div class="text-danger validation-summary-valid" data-valmsg-summary="true">
+            <ul><li style="display:none"></li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label for="Input_Email">Email</label>
+            <input class="form-control" type="email" data-val="true" data-val-email="The Email field is not a valid e-mail address." data-val-required="The Email field is required." id="Input_Email" name="Input.Email" value.bind="email">
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.Email" data-valmsg-replace="true"></span>
+        </div>
+                <div class="form-group">
+            <label for="Input_Username">Username</label>
+            <input class="form-control" type="text" data-val="true" data-val-required="The username field is required." id="Input_Username" name="Input.Email" value.bind="username">
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.Username" data-valmsg-replace="true"></span>
+        </div>
+        <div class="form-group">
+            <label for="Input_Password">Password</label>
+            <input class="form-control" type="password" data-val="true" data-val-length="The Password must be at least 6 and at max 100 characters long." data-val-length-max="100" data-val-length-min="6" data-val-required="The Password field is required." id="Input_Password" maxlength="100" name="Input.Password" value.bind="password">
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.Password" data-valmsg-replace="true"></span>
+        </div>
+        <div class="form-group">
+            <label for="Input_ConfirmPassword">Confirm password</label>
+            <input class="form-control" type="password" data-val="true" data-val-equalto="The password and confirmation password do not match." data-val-equalto-other="*.Password" data-val-required="The Confirm password field is required." id="Input_ConfirmPassword" name="Input.ConfirmPassword">
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.ConfirmPassword" data-valmsg-replace="true"></span>
+        </div>
+        <div class="form-group">
+            <label for="Input_FirstName">First Name</label>
+            <input class="form-control" type="text" data-val="true" data-val-length="The field First Name must be a string with a minimum length of 1 and a maximum length of 128." data-val-length-max="128" data-val-length-min="1" data-val-required="The First Name field is required." id="Input_FirstName" maxlength="128" name="Input.FirstName" value.bind="firstname">
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.FirstName" data-valmsg-replace="true"></span>
+        </div>
+        <div class="form-group">
+            <label for="Input_LastName">Last Name</label>
+            <input class="form-control" type="text" data-val="true" data-val-length="The field Last Name must be a string with a minimum length of 1 and a maximum length of 128." data-val-length-max="128" data-val-length-min="1" data-val-required="The Last Name field is required." id="Input_LastName" maxlength="128" name="Input.LastName" value.bind="lastname">
+            <span class="text-danger field-validation-valid" data-valmsg-for="Input.LastName" data-valmsg-replace="true"></span>
+        </div>
+        <button type="submit" click.delegate="loginClicked($event)" class="btn btn-primary">Register</button>
+    </form>
+    </div>
+    <div class="col-sm-1 col-md-3"></div>
+</div>

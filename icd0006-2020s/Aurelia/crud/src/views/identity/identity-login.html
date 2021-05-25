@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-sm-1 col-md-3"></div>
+    <div class="col-sm-10 col-md-4">
+        <form id="account" method="post">
+            <h4>Use a local account to log in.</h4>
+            <hr />
+            <div class = "alert alert-danger" show.bind="errorMessage != null">${errorMessage}</div>
+            <div class="form-group">
+                <label for="Input_Username">Username</label>
+                <input class="form-control" type="text" id="Input_Username" value.bind="user" />
+            </div>
+            <div class="form-group">
+                <label for="Input_Password">Password</label>
+                <input class="form-control" type="password" id="Input_Password" value.bind="password" />
+            </div>
+            <div class="form-group">
+                <button click.delegate="loginClicked($event)" type="submit" class="btn btn-primary">Log in</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-1 col-md-3"></div>
+</div>

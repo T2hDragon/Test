@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="LessonRemoved" xml:space="preserve">
+        <value>Lesson removed</value>
+    </data>
+    <data name="BackToStudentCourse" xml:space="preserve">
+        <value>Back to student course</value>
+    </data>
+    <data name="Complete" xml:space="preserve">
+        <value>Complete</value>
+    </data>
+    <data name="Progress" xml:space="preserve">
+        <value>Progress</value>
+    </data>
+    <data name="NextLesson" xml:space="preserve">
+        <value>Next lesson</value>
+    </data>
+    <data name="TeacherLessons" xml:space="preserve">
+        <value>Õpetaja sõidutunnid</value>
+    </data>
+    <data name="Time" xml:space="preserve">
+        <value>Time</value>
+    </data>
+    <data name="Student" xml:space="preserve">
+        <value>Student</value>
+    </data>
+    <data name="Remove" xml:space="preserve">
+        <value>Remove</value>
+    </data>
+    <data name="AddLesson" xml:space="preserve">
+        <value>Add lesson</value>
+    </data>
+    <data name="LessonLength" xml:space="preserve">
+        <value>Lesson length</value>
+    </data>
+    <data name="LessonLengthError" xml:space="preserve">
+        <value>Lesson length has to be longer than </value>
+    </data>
+    <data name="Add" xml:space="preserve">
+        <value>Add</value>
+    </data>
+    <data name="StudentLessons" xml:space="preserve">
+        <value>Student lessons</value>
+    </data>
+    <data name="Year" xml:space="preserve">
+        <value>Year</value>
+    </data>
+    <data name="Month" xml:space="preserve">
+        <value>Month</value>
+    </data>
+    <data name="Teacher" xml:space="preserve">
+        <value>Teacher</value>
+    </data>
+    <data name="LessonAdded" xml:space="preserve">
+        <value>Lesson added!</value>
+    </data>
+    <data name="DrivingLessons" xml:space="preserve">
+        <value>Driving lessons</value>
+    </data>
+    <data name="Day" xml:space="preserve">
+        <value>Day</value>
+    </data>
+</root>

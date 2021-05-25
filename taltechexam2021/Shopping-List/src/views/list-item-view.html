@@ -1,0 +1,34 @@
+<import from="../components/list-item-input" />
+<import from="../components/list-item-element" />
+
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-md-12">
+                <div class="card px-3">
+                    <div class="card-body">
+                        <h2class="card-title">Shoping list</h2>
+
+                        <list-item-input placeholder.bind="'Sausages'">
+                        </list-item-input>
+                        <form>
+                            <h4>Filter</h4>
+                            <label><input type="radio" name="check-filter" click.delegate="updateListItems(null)" checked.bind="filter" model.bind="null">  All</label>
+                            <label><input type="radio" name="check-filter" click.delegate="updateListItems(false)" checked.bind="filter" model.bind="false"> Unchecked</label>
+                            <label><input type="radio" name="check-filter" click.delegate="updateListItems(true)" checked.bind="filter" model.bind="true"> Checked</label>
+                          </form>
+
+                        <div class="list-wrapper">
+                            <ul class="d-flex flex-column list-item-list">
+
+
+                                <list-item-element repeat.for="item of appState.listItems" item.bind="item" check-callback.bind="checkListItem" remove-callback.bind="removeListItem" list-item-no.bind="$index"></list-item-element>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

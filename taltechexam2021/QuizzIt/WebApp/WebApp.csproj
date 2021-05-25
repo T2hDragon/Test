@@ -1,0 +1,107 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <UserSecretsId>aspnet-WebApp-8203996B-40ED-4461-B79A-20690C317AF1</UserSecretsId>
+    </PropertyGroup>
+
+    <PropertyGroup>
+      <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.5" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.5" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.5">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BLL.App.DTO\BLL.App.DTO.csproj" />
+      <ProjectReference Include="..\BLL.App\BLL.App.csproj" />
+      <ProjectReference Include="..\DAL.App.DTO\DAL.App.DTO.csproj" />
+      <ProjectReference Include="..\DAL.App.EF\DAL.App.EF.csproj" />
+      <ProjectReference Include="..\Domain.App\Domain.App.csproj" />
+      <ProjectReference Include="..\Extensions.Base\Extensions.Base.csproj" />
+      <ProjectReference Include="..\Resources\Resources.csproj" />
+      <ProjectReference Include="..\Resources.Base\Resources.Base.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\User\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\User\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\User\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\User\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\User\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\User\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\User\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\User\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\User\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\User\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Role\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Role\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Role\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Role\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Role\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Shared\_Layout.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Users\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Users\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Users\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Users\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Users\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Roles\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Roles\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Roles\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Roles\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Views\Roles\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\School\Views\_ViewImports.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\School\Views\_ViewStart.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\QuizReview\Views\Questions\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\QuizReview\Views\Answers\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\QuizReview\Views\Answers\_AnswerTitlePartial.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\QuizTaker\Views\Answers\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\QuizTaker\Views\Answers\_AnswerTitlePartial.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Views\User\Create.cshtml" />
+      <UpToDateCheckInput Remove="Views\User\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Views\User\Details.cshtml" />
+      <UpToDateCheckInput Remove="Views\User\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Views\User\Index.cshtml" />
+      <UpToDateCheckInput Remove="Views\User\Create.cshtml" />
+      <UpToDateCheckInput Remove="Views\User\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Views\User\Details.cshtml" />
+      <UpToDateCheckInput Remove="Views\User\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Views\User\Index.cshtml" />
+      <UpToDateCheckInput Remove="Views\Role\Create.cshtml" />
+      <UpToDateCheckInput Remove="Views\Role\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Views\Role\Details.cshtml" />
+      <UpToDateCheckInput Remove="Views\Role\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Views\Role\Index.cshtml" />
+      <UpToDateCheckInput Remove="Views\User\Create.cshtml" />
+      <UpToDateCheckInput Remove="Views\User\Delete.cshtml" />
+      <UpToDateCheckInput Remove="Views\User\Details.cshtml" />
+      <UpToDateCheckInput Remove="Views\User\Edit.cshtml" />
+      <UpToDateCheckInput Remove="Views\User\Index.cshtml" />
+      <UpToDateCheckInput Remove="Views\Home\Index.cshtml" />
+      <UpToDateCheckInput Remove="Views\Home\Privacy.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="ViewModels" />
+    </ItemGroup>
+
+</Project>

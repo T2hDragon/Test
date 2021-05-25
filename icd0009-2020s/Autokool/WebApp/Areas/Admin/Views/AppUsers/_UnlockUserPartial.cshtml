@@ -1,0 +1,40 @@
+@using Resource = Resources.Areas.Admin.Views.AppUsers._UnlockUserPartial
+@model WebApp.Areas.Admin.ViewModels.AppUser.AppUsersViewModel
+
+<a data-toggle="modal"
+   title="@Resource.HoverText" data-target="#modal-unlock-@Model.UserName" asp-action="LockUser">
+    <i class="fa fa-unlock text-success mx-1" aria-hidden="true"></i>
+</a>
+
+<div class="modal fade" id="modal-unlock-@Model.UserName" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-center" id="deleteModalLabel">
+                    @Resource.ConfirmationText
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5>@Resource.Username: @Model.UserName</h5>
+                <h5>Resource.FirstName: @Model.Firstname</h5>
+                <h5>Resource.LastName: @Model.Lastname</h5>
+                <h5>@Resource.Email: @Model.Email</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    @Resource.Close
+                </button>
+                <form asp-action="UnLockUser">
+                    <input type="hidden" asp-for="@Model.UserName"/>
+                    <input type="hidden" name="returnUrl" value="@Context.Request.Path@Context.Request.QueryString"/>
+                    <button type="submit" class="text-uppercase btn btn-primary">
+                        @Resource.Unlock
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+@using Resource = Resources.Areas.Admin.Views.DrivingSchools.Index
+@model IEnumerable<BLL.App.DTO.DrivingSchool>
+
+@{
+    ViewData["Title"] = Resource.Title;
+}
+
+<div class="jumbotron shadow rounded">
+
+    <h1>@Resource.Header</h1>
+
+    <p>
+        <a asp-action="Create" id="create-new-drivingschool">@Resource.CreateNew</a>
+    </p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                @Resource.Name
+            </th>
+            <th>
+                @Resource.Description
+            </th>
+            <th>
+                @Resource.OwnerUsername
+            </th>
+            <th>
+                @Resource.OwnerName
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppUser!.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppUser!.FullName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">
+                        <i class="fa fa-cog mx-1 text-secondary" aria-hidden="true"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

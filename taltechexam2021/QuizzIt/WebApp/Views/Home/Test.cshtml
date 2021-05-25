@@ -1,0 +1,26 @@
+@model int
+@{
+    var foo = @"<script>alert('hacked!');</script>";
+}
+<h1>@Html.Raw(foo)</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="id">Id</label>
+        <input type="text" class="form-control" id="id" name="id">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+@section HeadScripts {
+    <script>
+        alert('in header');
+    </script>
+}
+
+
+@section HeadScripts {
+    <script>
+        alert('in header 2');
+    </script>
+}

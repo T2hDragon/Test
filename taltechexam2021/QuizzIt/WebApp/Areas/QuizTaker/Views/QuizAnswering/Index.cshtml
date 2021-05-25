@@ -1,0 +1,48 @@
+@using BLL.App.DTO
+@model WebApp.Areas.QuizTaker.ModelViews.QuizAnswering.QuizAnsweringViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>@Model.Quiz.Name</h1>
+@if (Model.ErrorMessage != null)
+{
+    <div class="text-danger">@Model.ErrorMessage</div>
+    <br/>
+}
+
+<h2>@Model.Quiz.Questions!.ToList()[Model.QuestionIndex].Value</h2>
+<div>
+    <form asp-action="QuestionSubmit" asp-route-questionIndex=@Model.QuestionIndex asp-route-participantId="@Model.ParticipantId" asp-route-questionId=@(Model.Quiz.Questions!.ToList()[Model.QuestionIndex!].Id)>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        @foreach(SelectListItem answer in Model.Answers)
+        {
+            <div>@answer.Value</div>
+            @if (Model.PickedAnswerId.ToString() == answer.Value)
+            {
+                <input id="answer-@answer.Value" type="radio" name="answer" asp-for="Answers" value="@answer.Value" checked="true"/>
+            }
+            else
+            {
+                <input id="answer-@answer.Value" type="radio" name="answer" asp-for="Answers" value="@answer.Value")/>
+            }
+            <label for="answer-@answer.Value">@answer.Text</label>
+            <br />
+
+        }
+        @if (Model.QuestionIndex > 0)
+        {
+            <a asp-action="QuestionBack" asp-route-questionIndex=@Model.QuestionIndex asp-route-participantId="@Model.ParticipantId" asp-route-questionId=@(Model.Quiz.Questions!.ToList()[Model.QuestionIndex!].Id) class="btn btn-primary mx-auto">
+                @("Back")
+            </a>
+        }
+        <button class="btn btn-primary mx-auto">
+            @(Model.QuestionIndex == Model.Quiz.Questions!.Count ? "Submit" : "Next")
+        </button>
+    </form>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
